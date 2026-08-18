@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>خُطوة</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <main class="app">
+
+        <!-- الرئيسية -->
+        <section id="homeScreen" class="screen active">
+
+            <div class="hero-icon">✦</div>
+
+            <div class="brand">خُطوة</div>
+
+            <h1>
+                مش لازم تخلص<br>
+                <span>كل حاجة النهارده.</span>
+            </h1>
+
+            <p class="hero-text">
+                حوّل أي هدف كبير لخطوات صغيرة
+                تقدر تبدأ فيها دلوقتي.
+            </p>
+
+            <button id="startButton" class="primary-button">
+                ابدأ خطوة جديدة
+                <span>←</span>
+            </button>
+
+            <button id="journeyButton" class="secondary-button hidden">
+                🎯 افتح رحلتي
+            </button>
+
+            <button id="companionHomeButton" class="ghost-button">
+                🤖 اتكلم مع رفيق
+            </button>
+
+        </section>
+
+
+        <!-- إنشاء الهدف -->
+        <section id="goalScreen" class="screen">
+
+            <button class="back-button" data-back="home">
+                → رجوع
+            </button>
+
+            <div class="section-icon">🎯</div>
+
+            <span class="eyebrow">هدف جديد</span>
+
+            <h2>إيه الحاجة اللي<br>نفسك تحققها؟</h2>
+
+            <p class="description">
+                متفكرش في كل الطريق.
+                خلينا نبدأ بأول خطوة بس.
+            </p>
+
+            <label for="goalInput">هدفك</label>
+
+            <input
+                id="goalInput"
+                type="text"
+                maxlength="80"
+                placeholder="مثال: أتعلم البرمجة"
+            >
+
+            <label for="timeInput">قد إيه تقدر تخصص يوميًا؟</label>
+
+            <select id="timeInput">
+                <option value="15">15 دقيقة</option>
+                <option value="30" selected>30 دقيقة</option>
+                <option value="60">ساعة</option>
+                <option value="120">ساعتين أو أكثر</option>
+            </select>
+
+            <button id="createGoalButton" class="primary-button">
+                ابدأ رحلتي
+                <span>🚀</span>
+            </button>
+
+        </section>
+
+
+        <!-- بداية الرحلة -->
+        <section id="welcomeScreen" class="screen">
+
+            <div class="success-orb">🚀</div>
+
+            <span class="eyebrow">رحلتك بدأت</span>
+
+            <h2 id="welcomeGoal"></h2>
+
+            <p class="description">
+                مش مطلوب منك تبقى ممتاز من أول يوم.
+                المطلوب إنك تتحرك خطوة واحدة.
+            </p>
+
+            <div class="mini-stat">
+                <span>⏱️ وقتك اليومي</span>
+                <strong id="welcomeTime"></strong>
+            </div>
+
+            <button id="startJourneyButton" class="primary-button">
+                أنا جاهز
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- الخطوة الحالية -->
+        <section id="stepScreen" class="screen">
+
+            <div class="top-row">
+                <button class="back-button" data-back="journey">
+                    → رجوع
+                </button>
+
+                <span id="stepCounter" class="step-counter">
+                    1 / 7
+                </span>
+            </div>
+
+            <div class="step-card">
+
+                <div class="step-number">01</div>
+
+                <span class="eyebrow">خطوتك الحالية</span>
+
+                <h2 id="stepTitle"></h2>
+
+                <p id="stepDescription" class="description"></p>
+
+                <div class="tip-box">
+                    <span>💡</span>
+                    <p id="stepTip"></p>
+                </div>
+
+                <button id="completeButton" class="primary-button">
+                    ✓ خلصت الخطوة
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- الإنجاز -->
+        <section id="successScreen" class="screen">
+
+            <div class="success-orb">🎉</div>
+
+            <span class="eyebrow">إنجاز جديد</span>
+
+            <h2>عاش عليك!</h2>
+
+            <p class="description">
+                أنت خلصت خطوة فعلًا.
+                كمل بنفس الهدوء.
+            </p>
+
+            <div class="progress-preview">
+
+                <div class="progress-info">
+                    <span>تقدمك</span>
+                    <strong id="successProgress">14%</strong>
+                </div>
+
+                <div class="progress-track">
+                    <div id="successProgressFill" class="progress-fill"></div>
+                </div>
+
+            </div>
+
+            <button id="continueButton" class="primary-button">
+                الخطوة التالية
+                <span>→</span>
+            </button>
+
+            <button id="successJourneyButton" class="ghost-button">
+                🎯 شوف رحلتي
+            </button>
+
+        </section>
+
+
+        <!-- الرحلة -->
+        <section id="journeyScreen" class="screen">
+
+            <div class="top-row">
+
+                <button class="back-button" data-back="home">
+                    → الرئيسية
+                </button>
+
+                <button id="companionJourneyButton" class="icon-button">
+                    🤖
+                </button>
+
+            </div>
+
+            <span class="eyebrow">رحلتي</span>
+
+            <h2 id="journeyGoal"></h2>
+
+            <div class="progress-card">
+
+                <div class="progress-info">
+                    <div>
+                        <span>التقدم</span>
+                        <strong id="journeyPercent">0%</strong>
+                    </div>
+
+                    <span id="journeyCount">0 / 7</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="journeyProgressFill" class="progress-fill"></div>
+                </div>
+
+            </div>
+
+            <div id="stepsList" class="steps-list"></div>
+
+            <button id="journeyStartButton" class="primary-button">
+                أكمل خطوتي
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- المساعد -->
+        <section id="companionScreen" class="screen">
+
+            <div class="chat-header">
+
+                <button class="back-button" data-back="home">
+                    → رجوع
+                </button>
+
+                <div class="companion-title">
+                    <div class="avatar">✦</div>
+
+                    <div>
+                        <strong>رفيق</strong>
+                        <small>مساعد خُطوة</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+
+                <div class="message assistant">
+                    <div class="message-avatar">✦</div>
+
+                    <div class="bubble">
+                        أهلاً بيك ❤️<br>
+                        أنا رفيق. قولي إيه اللي شاغل بالك أو إيه الهدف اللي عايز تبدأ فيه؟
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="quick-actions">
+
+                <button data-question="ساعدني أبدأ هدفي">
+                    🎯 ساعدني أبدأ
+                </button>
+
+                <button data-question="أنا حاسس إني تايه">
+                    🧠 أنا تايه
+                </button>
+
+                <button data-question="إزاي أنظم وقتي؟">
+                    ⏱️ أنظم وقتي
+                </button>
+
+            </div>
+
+            <div class="chat-input">
+
+                <input
+                    id="chatInput"
+                    type="text"
+                    maxlength="300"
+                    placeholder="اكتب لرفيق..."
+                >
+
+                <button id="sendButton">
+                    ↑
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
