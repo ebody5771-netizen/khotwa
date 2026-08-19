@@ -102,8 +102,4 @@ app.get("/api/status", (req, res) => {
     });
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(
-        `Khotwa Backend running on port ${PORT}`
-    );
-});
+module.exports = app;
